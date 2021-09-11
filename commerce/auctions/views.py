@@ -4,12 +4,18 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-from .models import User, Product
+from .models import User, Product, Currency
 
 
 def index(request):
     return render(request, "auctions/index.html", {
         "products": Product.objects.all()
+    })
+
+
+def newItem(request):
+    return render(request, "auctions/createlisting.html", {
+        "currencies": Currency.objects.all()
     })
 
 

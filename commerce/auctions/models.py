@@ -18,7 +18,7 @@ class Currency(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=64, blank=False)
     price = models.DecimalField(max_digits=19, decimal_places=2)
-    description = models.TextField(blank=True)
+    description = models.TextField(blank=False)
     currency = models.ForeignKey(
         Currency, on_delete=models.CASCADE, related_name="currencies")
     owner = models.ForeignKey(

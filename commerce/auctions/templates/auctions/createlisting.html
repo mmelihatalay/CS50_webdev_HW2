@@ -1,0 +1,35 @@
+{% extends "auctions/layout.html" %}
+{% block body %}
+<div class="container">
+    <form>
+
+        <div class="row addClass">
+            <label for="productName">Product Name: </label>
+            <input type="text" placeholder="Product Name" id="productName">
+        </div>
+        <div class="row addClass">
+            <label for="productPrice">Price: </label>
+            <input type="number" placeholder="Price" id="productPrice">
+            <select>
+                {% for currency in currencies%}
+                <option value={{currency.sign}}>{{currency.sign}} - {{currency.name}}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="row addClass">
+            <label for="productDescp"> Product Description: </label>
+            <textarea type="text" placeholder="Description" id="productDescp"></textarea>
+        </div>
+        <div class="row addClass">
+            <label for="productImage">Product Image: </label>
+            <input type="url" placeholder="Image URL" id="productImage">
+
+        </div>
+        <div class="row addClass">
+            <input type="Submit" value="Add Item">
+        </div>
+
+    </form>
+</div>
+{% endblock %}
